@@ -1,7 +1,7 @@
 ## Restaurent management system 
 
 #### Use case diagram
-![alt text](restaurentmanagement.png)
+![use case diagram](https://github.com/bipinkumar650/foodordering/blob/master/restaurentManagement.png)
 
 ####Tech stack used:
 language: Java  
