@@ -1,4 +1,4 @@
-## Restaurent management system 
+## Online food ordering system
 
 #### Use case diagram
 ![use case diagram](https://github.com/bipinkumar650/foodordering/blob/master/restaurentManagement.png)
