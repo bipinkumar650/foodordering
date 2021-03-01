@@ -1,7 +1,7 @@
 ## Restaurent management system 
 
 #### Use case diagram
-![alt text](restaurentmanagement.png)
+![use case diagram](https://github.com/bipinkumar650/foodordering/blob/master/restaurentManagement.png)
 
 ####Tech stack used:
 language: Java  
@@ -13,10 +13,8 @@ Framwork: Spring Boot
 ```
 docker-compose up -d
 ```
-2. Download Postman collection.
-```
-restaurentManagementSystem.postman_collection.json
-```
+2. Download Postman collection.  
+https://github.com/bipinkumar650/foodordering/blob/master/restaurentManagementSystem.postman_collection.json  
 3. Create dummy data. endpoint is provided with postman collection.
 ```
 curl --request POST 'localhost:8080/admin/initializeData'
