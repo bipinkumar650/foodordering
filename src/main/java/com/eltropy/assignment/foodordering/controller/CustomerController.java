@@ -3,9 +3,12 @@ package com.eltropy.assignment.foodordering.controller;
 import com.eltropy.assignment.foodordering.model.Item;
 import com.eltropy.assignment.foodordering.model.ItemResponseDTO;
 import com.eltropy.assignment.foodordering.model.RestaurentResponseDTO;
+import com.eltropy.assignment.foodordering.model.User;
 import com.eltropy.assignment.foodordering.service.OrderManagementService;
 import com.eltropy.assignment.foodordering.service.RestaurantManagementService;
+import com.eltropy.assignment.foodordering.service.TokengeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,9 +23,21 @@ import java.util.List;
 public class CustomerController {
   @Autowired
   RestaurantManagementService restaurantManagementService;
+  @Autowired
+  TokengeneratorService tokengeneratorService;
 
   @Autowired
   OrderManagementService orderManagementService;
+
+  @PostMapping("/login")
+  public User login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
+
+    String token = tokengeneratorService.getJWTToken(username);
+    User user = new User();
+    user.setUser(username);
+    user.setToken(token);
+    return user;
+  }
 
   @GetMapping("/getRestaurants")
   List<RestaurentResponseDTO> getRestaurants() {

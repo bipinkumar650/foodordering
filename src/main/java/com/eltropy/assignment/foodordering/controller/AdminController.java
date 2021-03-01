@@ -2,10 +2,13 @@ package com.eltropy.assignment.foodordering.controller;
 
 import com.eltropy.assignment.foodordering.model.Item;
 import com.eltropy.assignment.foodordering.model.Restaurant;
+import com.eltropy.assignment.foodordering.model.User;
 import com.eltropy.assignment.foodordering.service.RestaurantManagementService;
+import com.eltropy.assignment.foodordering.service.TokengeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -17,6 +20,18 @@ public class AdminController {
 
   @Autowired
   RestaurantManagementService restaurantManagementService;
+  @Autowired
+  TokengeneratorService tokengeneratorService;
+
+  @PostMapping("/login")
+  public User login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
+
+    String token = tokengeneratorService.getJWTToken(username);
+    User user = new User();
+    user.setUser(username);
+    user.setToken(token);
+    return user;
+  }
 
   @PostMapping("/initializeData")
   boolean addDummyData() {

@@ -12,7 +12,13 @@
 					"name": "getOrders",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8080/restaurant/getOrders?restaurantId=1",
 							"protocol": "http",
@@ -29,6 +35,47 @@
 									"key": "restaurantId",
 									"value": "1"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "\"Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYmlwaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjE0NjExMzIwLCJleHAiOjE2MTQ2MTE5MjB9.-hXOgAtpOSxRNbnVDr6eC9cAxdtVvTxNl_Tx_oNTz9unAd3H1ZTPZD0P9VosCefVS4FkpkV6xzBhoEeD8Wj9jQ\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "bipin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/restaurant/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"restaurant",
+								"login"
 							]
 						}
 					},
@@ -63,7 +110,13 @@
 					"name": "placeOrder",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYmlwaW4iLCJhdXRob3JpdGllcyI6WyJEUklWRVIiXSwiaWF0IjoxNjE0NjA3Nzc5LCJleHAiOjE2MTQ2MDgzNzl9.B3eTO9R-lEKnevNaEadbbaVlIpZ98TGYrtighRM_BVgokHga8fZy5ohTm4US3FNy16vE4WMVrQVP4vOfmifI9g\"",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "[\n    {\n        \"name\": \"biryani\"\n    },\n    {\n        \"name\": \"naan\"\n    }\n]",
@@ -97,9 +150,15 @@
 					"name": "getMenu",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYmlwaW4iLCJhdXRob3JpdGllcyI6WyJEUklWRVIiXSwiaWF0IjoxNjE0NjA3Nzc5LCJleHAiOjE2MTQ2MDgzNzl9.B3eTO9R-lEKnevNaEadbbaVlIpZ98TGYrtighRM_BVgokHga8fZy5ohTm4US3FNy16vE4WMVrQVP4vOfmifI9g\"",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/customer/getMenu?restaurantId=2",
+							"raw": "localhost:8080/customer/getMenu?restaurantId=1",
 							"host": [
 								"localhost"
 							],
@@ -111,7 +170,7 @@
 							"query": [
 								{
 									"key": "restaurantId",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -122,7 +181,13 @@
 					"name": "getRestaurentList",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYmlwaW4iLCJhdXRob3JpdGllcyI6WyJEUklWRVIiXSwiaWF0IjoxNjE0NjA3Nzc5LCJleHAiOjE2MTQ2MDgzNzl9.B3eTO9R-lEKnevNaEadbbaVlIpZ98TGYrtighRM_BVgokHga8fZy5ohTm4US3FNy16vE4WMVrQVP4vOfmifI9g\"",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "localhost:8080/customer/getRestaurants",
 							"host": [
@@ -132,6 +197,41 @@
 							"path": [
 								"customer",
 								"getRestaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "customer",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"login"
 							]
 						}
 					},
@@ -146,17 +246,67 @@
 					"name": "deliverOrder",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYmlwaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjE0NjExNDA3LCJleHAiOjE2MTQ2MTIwMDd9.Q_LAW6RdVuHZypUk_VZkbL1ZWMaEr4izDLIV9Xf3EXf4DDP2SxdIZ3ppXQ9ZBbu5ej7t-XjNnHG3B0S6fk1phg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
 						"url": {
-							"raw": "http://localhost:8080/admin/initializeData",
+							"raw": "http://localhost:8080/driver/deliverOrder",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"admin",
-								"initializeData"
+								"driver",
+								"deliverOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "bipin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/driver/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"driver",
+								"login"
 							]
 						}
 					},
@@ -172,6 +322,31 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"url": {
+							"raw": "localhost:8080/admin/initializeData",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"initializeData"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/admin/initializeData",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYmlwaW4iLCJhdXRob3JpdGllcyI6WyJEUklWRVIiXSwiaWF0IjoxNjE0NjA3Nzc5LCJleHAiOjE2MTQ2MDgzNzl9.B3eTO9R-lEKnevNaEadbbaVlIpZ98TGYrtighRM_BVgokHga8fZy5ohTm4US3FNy16vE4WMVrQVP4vOfmifI9g\"",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "localhost:8080/admin/initializeData",
 							"host": [
